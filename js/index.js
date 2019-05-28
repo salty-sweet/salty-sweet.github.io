@@ -6,7 +6,11 @@ var isIe = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(nav
 var scrollSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive) 
 var slideDurationSetting = 600; //Amount of time for which slide is "locked"
 var currentSlideNumber = 0;
-var totalSlideNumber = $(".background").length;
+var totalSlideNumber = 6;
+//var totalSlideNumber = $(".background").length;
+
+console.log("current slide number: " + currentSlideNumber);
+console.log("total slide number: " + totalSlideNumber);
 
 // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
 function parallaxScroll(evt) {
@@ -28,6 +32,7 @@ function parallaxScroll(evt) {
       if (currentSlideNumber !== totalSlideNumber - 1) {
         currentSlideNumber++;
         nextItem();
+        console.log("next item; slide number: " + currentSlideNumber);
       }
       slideDurationTimeout(slideDurationSetting);
     }
@@ -36,8 +41,10 @@ function parallaxScroll(evt) {
       ticking = true;
       if (currentSlideNumber !== 0) {
         currentSlideNumber--;
+        console.log("previous item; slide number: " + currentSlideNumber);
       }
       previousItem();
+      console.log("previous item; slide number: " + currentSlideNumber);
       slideDurationTimeout(slideDurationSetting);
     }
   }
