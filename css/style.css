@@ -39,6 +39,21 @@
             backface-visibility: hidden;
             transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
         }
+        .content-wrapper-mobile {
+            margin-left: 15vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-flow: column nowrap;
+            font-family: Montserrat;
+            -webkit-transform: translateY(0vh);
+            transform: translateY(0vh);
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+        }
         .bold {
             font-weight: 600;
         }
