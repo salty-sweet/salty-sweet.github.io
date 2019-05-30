@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Saltysweet's Portfolio"/>
+    <meta property="og:image" content="thumbs.jpg"/>
+    <meta property="og:description" content="Rafael Marko's Portfolio. Under maintenance."/>
+
+    <title>saltysweet's Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,600i,800,800i,900,900i&display=swap');
+        
+        .text-selection-none{
+            user-select: none; /* supported by Chrome and Opera */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none;
+        } 
+        .content-title {
+            font-weight: 900;
+            font-size: 10vh;
+            margin-block-start: 0px;
+            margin-block-end: 0px; 
+        }
+        .content-subtitle {
+        font-size: 2.5vh;
+        line-height: 1.05;
+        }
+        .content-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-flow: column nowrap;
+            font-family: Montserrat;
+            -webkit-transform: translateY(0vh);
+            transform: translateY(0vh);
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        .bold {
+            font-weight: 600;
+        }
+        .design {
+            background-color:  #eee;
+            color: #111;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            cursor: default;
+            background-color: #111;
+            color: #eee;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        function invertColors() {
+            var element = document.getElementById("invert");
+                element.classList.toggle("design");
+        }
+    </script>
+</head>
+
+<body id="invert" class="text-selection-none">
+    <div class="content-wrapper">
+        <p class="content-title" onclick="invertColors()">
+                uh oh.
+        </p>
+        <p class="content-subtitle">
+            You've been redirected since you<br>
+            viewed my portfolio site on<br>
+            your mobile device.<br>
+            <br>
+
+            I know it's sad, but i'm still<br>
+            working on trying to make<br>
+            the site mobile-friendly.<br>
+            <br>
+
+            For now, you can only check it out<br>
+            on a computer browser.<br>
+            <br>
+            <br>
+            <br>
+            <span class="bold">- Rafael Marko -</span>
+        </p>
+    </div>
+</body>
+
+</html>

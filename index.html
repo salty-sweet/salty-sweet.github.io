@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -10,7 +10,7 @@
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Saltysweet's Portfolio"/>
   <meta property="og:image" content="thumbs.jpg"/>
-  <meta property="og:description" content="Rafael Marko's Github Portfolio. Quite incomplete for now."/>
+  <meta property="og:description" content="Rafael Marko's Portfolio. Under maintenance."/>
 
 
 
@@ -19,21 +19,18 @@
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
   <script type="text/javascript" src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
   <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/typeit@5.10.7/dist/typeit.min.js'></script>
-  <!-- <script type="text/javascript" src='js/index.js'></script> -->
-  <script>
-    var boostr = new boostr({
-        preConnectAll: false,
-        preFetchDelay: 0,
-        preRenderDelay: 5000,
-    });
-    boostr.start();
+  <script type="text/javascript" src='js/index.js'></script>
+  <script type="text/javascript">
+    if (screen.width <= 699) {
+      document.location = "mobile.html";
+    }
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="css/style.css">  
 </head>
 
-<body>
+<body class="text-selection-none">
   <div id="loading">
     <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />
   </div>
