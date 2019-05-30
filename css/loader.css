@@ -1,0 +1,110 @@
+.loader {
+    position: relative;
+    z-index: 1000;
+    height: 2em;
+    width: 2em;
+    outline: 2px solid #eee;
+    -webkit-animation: loader--spinning 1.25s infinite ease;
+            animation: loader--spinning 1.25s infinite ease;
+    /** Loader 1 **/
+  }
+  @-webkit-keyframes loader--spinning {
+    50% {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
+    100% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+  }
+  @keyframes loader--spinning {
+    50% {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
+    100% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+  }
+  .loader::after {
+    content: '';
+    display: block;
+    height: inherit;
+    width: inherit;
+    outline: inherit;
+    -webkit-animation-duration: 1.25s;
+            animation-duration: 1.25s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+  }
+  .loader.loader--1::after {
+    -webkit-animation-name: loader--scaling;
+            animation-name: loader--scaling;
+  }
+  @-webkit-keyframes loader--scaling {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    25% {
+      -webkit-transform: scale(1.25);
+              transform: scale(1.25);
+    }
+    50% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    75% {
+      -webkit-transform: scale(1.25);
+              transform: scale(1.25);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes loader--scaling {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    25% {
+      -webkit-transform: scale(1.25);
+              transform: scale(1.25);
+    }
+    50% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    75% {
+      -webkit-transform: scale(1.25);
+              transform: scale(1.25);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
+  /* General page styling */
+  .loader-container {
+    position: absolute;
+    align-content: center;
+    z-index: 999;
+    background-color: #111;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loader {
+    margin: 2rem;
+  }
+  
