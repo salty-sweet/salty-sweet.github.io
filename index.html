@@ -19,21 +19,34 @@
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
   <script type="text/javascript" src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
   <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/typeit@5.10.7/dist/typeit.min.js'></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  
+  <!-- <script type="text/javascript" src='js/index.js'></script> -->
+  <script>
+    var boostr = new boostr({
+        preConnectAll: false,
+        preFetchDelay: 0,
+        preRenderDelay: 5000,
+    });
+    boostr.start();
+  </script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="css/style.css">  
 </head>
 
 <body>
-  
+  <div id="loading">
+    <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />
+  </div>
   <div class="container">
   <section class="background">
     <div class="content-wrapper">
       <p class="content-title">
         <span>ＳＡＬＴＹＳＷＥＥＴ</span>
       </p>
-      <p class="content-subtitle"><span class="bold">Artist</span>   //   <span class="bold">Designer</span>   //   <span class="bold">Developer</span></p>
+      <p class="content-subtitle">
+        <span class="bold">Artist</span>   //   <span class="bold">Designer</span>   //   <span class="bold">Developer</span><br><br>
+        Portfolio is still Under Maintenance.
+      </p>
     </div>
   </section>
   <section class="background">
