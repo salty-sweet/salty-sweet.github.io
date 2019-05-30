@@ -74,8 +74,6 @@ html, body {
   background-size: cover;
 }
 
-
-
 /* Set stacking context of slides */
 .background:nth-child(0) {
   z-index: 6;
@@ -119,7 +117,9 @@ html, body {
 .italic {
   font-style: italic;
 }
-
+.left {
+  text-align: right;
+}
 .button {
   background:none;
   border-width: none;
@@ -136,6 +136,61 @@ html, body {
   border-style: solid;
   border-width: 0px 15px;
   border-color: hsla(0, 0%, 100%, 1);
+}
+
+.overlay-container {
+  position: absolute;
+  align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 499;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+.overlay-mover-top {
+  position: absolute;
+  top: 0%;
+  align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  margin: 0;
+  background-color: hsla(0, 0%, 100%, 0.5);
+  height: 7vh;
+  width: 100%;
+}
+.overlay-mover-bottom {
+  position: absolute;
+  bottom: 0;
+  align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  margin: 0;
+  background-color: hsla(0, 0%, 0%, 0.3);
+  height: 10vh;
+  width: 100%;
+}
+.next {
+  position: absolute;
+  border: solid transparent;
+  border-width: 20px 20px 0 0;
+  padding: 3vh; /* Arrow Size */
+  box-shadow: -3px 3px 0 0 #eee inset;
+  -webkit-box-shadow: -3px 3px 0 0 #eee inset;
+  -webkit-transform: rotate(135deg);
+}
+.prev {
+ position: absolute;
+ border: solid transparent;
+ border-width: 0px 0px 20px 20px;
+ padding: 25px; /* Arrow Size */
+ box-shadow: 3px -3px 0 0 #eee inset;
+ -webkit-transform: rotate(135deg); 
 }
 
 .content-wrapper {
@@ -159,6 +214,7 @@ html, body {
   line-height: 1.4;
 }
 .content-subtitle {
+  font-family: Montserrat;
   font-size: 2.5vh;
   line-height: 1.05;
 }

@@ -14,6 +14,7 @@ console.log("total slide number: " + totalSlideNumber);
 
 // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
 function parallaxScroll(evt) {
+  console.log(evt);
   if (isFirefox) {
     //Set delta for Firefox
     delta = evt.detail * (-120);
@@ -71,3 +72,5 @@ function previousItem() {
   var $currentSlide = $(".background").eq(currentSlideNumber);
   $currentSlide.removeClass("down-scroll").addClass("up-scroll");
 }
+
+// --------------------------------------- //
