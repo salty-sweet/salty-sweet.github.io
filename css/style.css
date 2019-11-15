@@ -14,10 +14,21 @@
             margin-block-end: 0px;
         }
         .content-title-mobile {
+            animation-duration: 6s;
+            animation-timing-function: ease-in-out;
+            animation-name: subtle;
+            animation-iteration-count: infinite;
+            color: #eee;
             font-weight: 900;
             font-size: 10vh;
             margin-block-start: 0px;
             margin-block-end: 0px;
+        }
+        .content-title-mobile-hoveranim:hover {
+            animation-duration: 0.3s;
+            animation-timing-function: ease-out;
+            animation-name: titlehover;
+            animation-iteration-count: 1;
         }
         .content-subtitle {
             font-size: 2.5vh;
@@ -91,6 +102,35 @@
             border-style: solid;
             border-width: 0px 15px;
             border-color: #111;
+        }   
+        .button-mobile {
+            background:none;
+            border-width: none;
+            font-weight: 400;
+        }
+        .button-mobile:hover {
+            transition: border-width 0.7s;
+            cursor: pointer;
+            background-color: #111;
+            font-weight: 600;
+            color: #111;
+            border-style: solid;
+            border-width: 0px 15px;
+            border-color: #111;
+        }
+        .design-button-mobile {
+            background:none;
+            border-width: none;
+        }
+        .design-button-mobile:hover {
+            background-color: #111;
+            color: #eee;
+            transition: border-width 0.7s;
+            cursor: pointer;
+            font-weight: 600;
+            border-style: solid;
+            border-width: 0px 15px;
+            border-color: #111;
         }        
 
         html, body {
@@ -98,7 +138,18 @@
             padding: 0;
             cursor: default;
             background-color: #111;
-            color: #eee;
+            color: #111;
             overflow: hidden;
         }
+
+        @keyframes subtle {
+            0%   {color: #111;}
+            50%  {color: #eee;}
+            100% {color: #111;}
+        }
+        @keyframes titlehover {
+            0%   {color: #111;}
+            100%  {color: #eee;}
+        }
+
         /* FUCKING DEPLOY THIS SHIT */
