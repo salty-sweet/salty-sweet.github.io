@@ -1,0 +1,203 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(270deg, #c53364, #622774);
+            background-size: 400% 400%;
+            animation: bganime 30s ease infinite;
+            margin-top: 20vh;
+            color: whitesmoke;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+            font-weight: 300;
+            
+        }
+        h1 {
+            margin-top: -5vh;
+            margin-bottom: -4.1vh;
+            font-weight: 400;
+        }
+        span {
+            font-style: italic;
+            font-size: 2vh;
+            margin-left:  1vh;
+        }
+        input[type=text] {
+            font-weight: 400;
+            font-family: 'Open Sans', sans-serif;
+            border-width: 0;
+            border-radius: 2vh;
+            font-size: 2.5vh;
+            padding: 1vh 2vh;
+            margin: 0.3vh 0 1vh 0;
+            width: 100%;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        input[type=button] {
+            font-family: 'Open Sans', sans-serif;
+            border-width: 0;
+            border-radius: 50px;
+            width:60%;
+            height: 4vh;
+            margin:0.5vh 0 1vh 0;
+            color: #555;
+            background-color: #fff;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        input[type=button]:hover {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            border-width: 0;
+            border-radius: 50px;
+            width:80%;
+            height: 4vh;
+            margin:0.5vh 0 1vh 0;
+            color: #fff;
+            background-color: #c53364;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        input[type=text]:focus{
+            outline: none;
+            box-shadow: 0 0 0 2px #622774;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th:first-of-type {border-radius: 1vh 0 0 0;}
+        th {
+            padding: 0.2em;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-right: 1px solid rgba(245, 245, 245, 0.6);
+        }
+        th:last-of-type {
+            border-radius: 0 1vh 0 0;
+            border-right: 0 solid transparent;
+            border-left: 1px solid rgba(245, 245, 245, 0.6);
+        }
+        td {
+            padding: 0.2em;
+            padding-left: 0.3rem;
+            border-top: 1px solid rgba(245, 245, 245, 0.6);
+            border-right: 1px solid rgba(245, 245, 245, 0.6);
+        }
+        td:last-of-type {
+            border-right: 0 solid transparent;
+            border-left: 1px solid rgba(245, 245, 245, 0.6);
+        }
+        
+        hr.left {
+            border-style: solid;
+            border-width: 1px;
+            width: 20vw;
+            margin-right: 60vw;
+        }
+        hr.right {
+            border-style: solid;
+            border-width: 1px;
+            width: 20vw;
+            margin-left: 60vw;
+        }
+        .form {
+            color: #ddd;
+            display: inline-block;
+            padding: 1.2vw;
+            margin: 1vh 0.5vw;
+            height: 50vh;
+            width: 50%;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.4);
+            width: 15vw;
+            border-radius: 1.5vh;
+        }
+        .table {
+            margin-bottom: -5.8vh;
+            width: 50vw;
+        }
+        @keyframes bganime {
+            0% {background-position: 0% 50%}
+            50% {background-position: 100% 50%}
+            100% {background-position: 0% 50%}
+        }
+    </style>
+</head>
+
+<body>
+    <hr class="left">
+    <h1>Simple Payroll</h1>
+    <hr class="right">
+    <br>
+    <div class="form">
+        <span>Employee Name</span><br>
+        <input type="text" id="name"></input><br>
+        <span>Days Worked</span><br>
+        <input type="text" id="days"></input><br>
+        <span>Daily Rate</span><br>
+        <input type="text" id="rate"></input><br>
+        <span>Deduction Amount</span><br>
+        <input type="text" id="deduct"></input><br>
+        <center>
+        <input type="button" value="Add To Table" onclick="add()">
+        <input type="button" value="Delete Record" onclick="del()">
+        </center>
+    </div>
+    <div class="form table">
+        <table style="width:100%;" id="table">
+            <tr>
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Days Worked</th>
+              <th>Daily Rate</th>
+              <th>Gross Pay</th>
+              <th>Deduction</th>
+              <th>Net Pay</th>
+            </tr>
+          </table>
+    </div>
+
+    <script>
+        var id = 1;
+        function add() {
+            var name = document.getElementById("name").value;
+            var days = document.getElementById("days").value;
+            var rate = document.getElementById("rate").value;
+            var deduct = document.getElementById("deduct").value;
+
+            var gross = rate * days;
+            var pay = gross - deduct;
+
+            var data = [id, name, days, rate, gross, deduct, pay];
+            var x;
+            
+            var newRow = document.createElement("TR");
+            newRow.setAttribute("id", id);
+            for (x of data) {
+                var newData = document.createElement("TD");
+                newData.innerHTML = x;
+                newRow.appendChild(newData);
+            }
+
+            document.getElementById("table").appendChild(newRow);
+            id++;
+            document.getElementById("name").value = "";
+            document.getElementById("days").value = "";
+            document.getElementById("rate").value = "";
+            document.getElementById("deduct").value = "";
+        }
+
+        function del() {
+            var removeId = prompt("Enter the ID of the row to be removed:", "");
+            var dom = document.getElementById(removeId);
+            
+            if (dom != null && dom != 'undefined') {
+                dom.remove();
+            } else {
+                alert("Data with the corresponding ID cannot be found or is already removed.");
+            }
+        }
+    </script>
+</body>
+
+</html>
