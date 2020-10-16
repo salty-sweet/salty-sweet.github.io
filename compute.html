@@ -1,0 +1,157 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #e6e9ef;
+            background-size: 200%;
+            margin-top: 20vh;
+            color: black;
+            text-align: center;
+            font-size: 3vh;
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 400;
+            letter-spacing: 0.5em;
+        }
+        
+        h1 {
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            animation: gogopowerrangers 1s 1 ease-in-out;
+            animation-fill-mode: forwards;
+            margin: 0 0;
+        }
+        
+        @keyframes gogopowerrangers {
+            100% {
+                font-variation-settings: 'wght' 600;
+            }
+        }
+        
+        input[type=text] {
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            color: #e9edf0;
+            font-size: 10vh;
+            text-align: center;
+            border-width: 0;
+            border-radius: 8vh;
+            padding: 1vh 2vh;
+            margin: 3vh 0vw;
+            width: 55vw;
+            height: 10vw;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+            background-color: #e9edf0;
+            box-shadow: -20px -20px 40px 0px #fff,
+                        -1px -1px 1px 0px rgba(255, 255, 255, 0.6),
+                        20px 20px 40px 0px #d3dbe6,
+                        2px 2px 4px -10px #fff inset,
+                        -2px -2px 4px -10px #d3dbe6 inset; 
+        }
+
+        input[type=text].poof {
+            font-variation-settings: 'wght' 800;
+            color: black;
+        }
+
+        input[type=text]:focus {
+            outline: none;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        
+        input[type=button] {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5vh;
+            letter-spacing: 0.2em;
+            font-variation-settings: 'wght' 400;
+            margin: 3vh;
+            padding: 0 1vw;
+            border: none;
+            border-radius: 2vh;
+            height: 50px;
+            background: #e6e9ef;
+            transition: all 0.5s linear;
+            animation-fill-mode: forwards;
+            box-shadow: -20px -20px 40px 0px #fff,
+                        -1px -1px 1px 0px rgba(255, 255, 255, 0.6),
+                        20px 20px 40px 0px #d3dbe6,
+                        2px 2px 4px -10px #fff inset,
+                        -2px -2px 4px -10px #d3dbe6 inset; 
+        }
+        
+        input[type=button]:active {
+            transition: all 0.5s linear;
+            animation-fill-mode: forwards;
+            box-shadow: 20px -20px 40px -50px #fff,
+                            1px 1px 1px 0px rgba(255, 255, 255, 0.6),
+                            -20px 20px 40px -50px #d3dbe6,
+                            -2px -2px 4px 0px #fff inset,
+                            2px 2px 4px 0px #d3dbe6 inset;
+        }
+        
+        input[type=button]:focus {
+            outline: none;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+            animation-fill-mode: forwards;
+        }
+
+        
+        .sh0 {
+            background-color: #e6e9ef;
+            border-radius: 9vh;
+            box-shadow: -1px -1px 1px 0px rgba(255, 255, 255, 0.6), -20px -20px 40px 0px #fff, 20px 20px 40px 0px #d3dbe6;
+        }
+        
+        .maindiv {
+            display: inline-block;
+            text-align: left;
+            height: 20vh;
+            width: 20vh;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>simple computations.</h1>
+    <br>
+    <input id="box" class="poof" type="text" placeholder="#">
+    <br>
+    <input type="button" value="fahrenheit to celcius" onclick="convert(1)"> <input type="button" value="celcius to fahrenheit" onclick="convert(2)"> 
+    <br>
+    <input type="button" value="meters to feet" onclick="convert(3)"> <input type="button" value="feet to meters" onclick="convert(4)">  
+    </input>
+
+    <script>
+        var id = 1;
+        var value;
+
+        function convert(x) {
+            value = document.getElementById("box").value;
+            switch (x) {
+                case 1: 
+                    value = (value - 32) * 5/9;
+                    break;
+                case 2: 
+                    value = (value * 9/5) + 32;
+                    break;
+                case 3: 
+                    value = value * 3.281;
+                    break;
+                case 4: 
+                    value = value / 3.281;
+                    break;
+            }
+            document.getElementById("box").classList.remove("poof");
+            setTimeout(replacevalue, 500);
+        }
+
+        function replacevalue() {
+            document.getElementById("box").value = value;
+            document.getElementById("box").classList.add("poof");
+        };
+
+    </script>
+</body>
+
+</html>
