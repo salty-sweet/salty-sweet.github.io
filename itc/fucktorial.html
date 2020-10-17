@@ -1,0 +1,239 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;800&display=swap" rel="stylesheet">
+    <style>
+        /*  Nth Factorial, Sum and Average
+         *  by Rafael Marko O. Lenterna
+         *  
+         *  CSS Styling referenced from: 
+         *  https://www.behance.net/gallery/91304073/split-neumorphism-ui-ux-payment-app
+        */
+        
+        body {
+            background: #e6e9ef;
+            background-size: 200%;
+            margin-top: 10vh;
+            color: black;
+            text-align: center;
+            font-size: 3vh;
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 400;
+            letter-spacing: 0.5em;
+        }
+        
+        h1 {
+            color: #e9edf0;
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            animation: gogopowerrangers 1s 1 ease-in-out;
+            transition: all 1s cubic-bezier(0.22, 0.44, 0, 1);
+            animation-fill-mode: forwards;
+            margin: 2vh 0 0 0;
+        }
+        
+        h1.poof {
+            font-variation-settings: 'wght' 600;
+            color: black;
+        }
+        
+        h4 {
+            color: #e9edf0;
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            animation: gogopowerrangers 1s 1 ease-in-out;
+            transition: all 1s cubic-bezier(0.22, 0.44, 0, 1);
+            letter-spacing: 0.2em;
+            animation-fill-mode: forwards;
+            margin: 1.5vh 0;
+        }
+        
+        h4.poof {
+            font-variation-settings: 'wght' 400;
+            color: black;
+        }
+        
+        input[type=text] {
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            color: #e9edf0;
+            font-size: 10vh;
+            text-align: center;
+            border-width: 0;
+            border-radius: 8vh;
+            padding: 1vh 2vh;
+            margin: 3vh 0vw;
+            width: 55vw;
+            height: 10vw;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+            background-color: #e9edf0;
+            box-shadow: -20px -20px 40px 0px #fff, -1px -1px 1px 0px rgba(255, 255, 255, 0.6), 20px 20px 40px 0px #d3dbe6, 2px 2px 4px -10px #fff inset, -2px -2px 4px -10px #d3dbe6 inset;
+        }
+        
+        input[type=text].poof {
+            font-variation-settings: 'wght' 800;
+            color: black;
+        }
+        
+        input[type=text]:focus {
+            outline: none;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        
+        input[type=button] {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5vh;
+            letter-spacing: 0.2em;
+            font-variation-settings: 'wght' 400;
+            margin: 3vh;
+            padding: 0 1vw;
+            border: none;
+            border-radius: 2vh;
+            height: 50px;
+            background: #e6e9ef;
+            transition: all 0.3s linear;
+            animation-fill-mode: forwards;
+            box-shadow: -20px -20px 40px 0px #fff, -1px -1px 1px 0px rgba(255, 255, 255, 0.6), 20px 20px 40px 0px #d3dbe6, 2px 2px 4px -10px #fff inset, -2px -2px 4px -10px #d3dbe6 inset;
+        }
+        
+        input[type=button]:active {
+            transition: all 0.3s linear;
+            animation-fill-mode: forwards;
+            box-shadow: 20px -20px 40px -50px #fff, 1px 1px 1px 0px rgba(255, 255, 255, 0.6), -20px 20px 40px -50px #d3dbe6, -2px -2px 4px 0px #fff inset, 2px 2px 4px 0px #d3dbe6 inset;
+        }
+        
+        input[type=button]:focus {
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.22, 0.44, 0, 1);
+            animation-fill-mode: forwards;
+        }
+        
+        .sh0 {
+            background-color: #e6e9ef;
+            border-radius: 9vh;
+            box-shadow: -1px -1px 1px 0px rgba(255, 255, 255, 0.6), -20px -20px 40px 0px #fff, 20px 20px 40px 0px #d3dbe6;
+        }
+        
+        .maindiv {
+            display: inline-block;
+            text-align: left;
+            height: 20vh;
+            width: 20vh;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="Factorial" onclick="convert(1)"> <input type="button" value="Summation" onclick="convert(2)"> <input type="button" value="Average" onclick="convert(3)">
+    <h1 id="head" class="poof">simple computations.</h1>
+    <h4 id="subtitle" class="poof">select a function above.</h4>
+    <br>
+    <input id="box" class="poof" type="text" placeholder="#">
+    <br>
+    <input type="button" value="calculate" onclick="calculate()">
+    </input>
+
+    <script>
+        var id = 0;
+        var h1, sub, value = 0;
+
+        function convert(x) {
+            document.getElementById("head").classList.remove("poof");
+            document.getElementById("subtitle").classList.remove("poof");
+            switch (x) {
+                case 1:
+                    h1 = "factorial.";
+                    sub = "calculates the factorial of nth number."
+                    id = 1;
+                    break;
+                case 2:
+                    h1 = "summation.";
+                    sub = "sums up the first N numbers."
+                    id = 2;
+                    break;
+                case 3:
+                    h1 = "average.";
+                    sub = "averages the first N numbers."
+                    id = 3;
+                    break;
+            }
+            setTimeout(function() {
+                replacevalue(1)
+            }, 1000);
+        }
+
+        function calculate() {
+            value = document.getElementById("box").value;
+            switch (id) {
+                case 0:
+                    alert("You need to have a function selected.");
+                    break;
+                case 1:
+                    document.getElementById("box").classList.remove("poof");
+
+                    //
+                    //  While Loop - Factorial
+                    //
+                    var count = value;
+                    while (count != 1) {
+                        value *= (count - 1);
+                        console.log(value);
+                        count--;
+                    }
+
+                    break;
+                case 2:
+                    document.getElementById("box").classList.remove("poof");
+
+                    //
+                    //  Do While Loop - Summation
+                    //
+                    var tempValue = 0,
+                        count = 0;
+                    do {
+                        count++;
+                        tempValue += count;
+                    }
+                    while (count < value)
+                    value = tempValue;
+
+                    break;
+                case 3:
+                    document.getElementById("box").classList.remove("poof");
+
+                    //
+                    //  For Loop - Average
+                    //
+                    var tempValue = 0;
+                    for (i = 0; i <= value; i++) {
+                        tempValue += i;
+                    }
+                    value = tempValue / value;
+
+                    break;
+            }
+            setTimeout(function() {
+                replacevalue(2)
+            }, 500);
+        }
+
+
+
+        function replacevalue(x) {
+            switch (x) {
+                case 1:
+                    document.getElementById("subtitle").innerHTML = sub;
+                    document.getElementById("subtitle").classList.add("poof");
+                    document.getElementById("head").innerHTML = h1;
+                    document.getElementById("head").classList.add("poof");
+                    break;
+                case 2:
+                    document.getElementById("box").value = value;
+                    document.getElementById("box").classList.add("poof");
+                    break;
+            }
+        };
+    </script>
+</body>
+
+</html>

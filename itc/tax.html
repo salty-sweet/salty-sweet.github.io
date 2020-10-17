@@ -1,0 +1,204 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;800&display=swap" rel="stylesheet">
+    <style>
+        /*  Income Tax Calculator
+         *  by Rafael Marko O. Lenterna
+         *  
+         *  CSS Styling referenced from: 
+         *  https://www.behance.net/gallery/91304073/split-neumorphism-ui-ux-payment-app
+        */
+        
+        body {
+            background: #e6e9ef;
+            background-size: 200%;
+            margin-top: 10vh;
+            color: black;
+            text-align: center;
+            font-size: 3vh;
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 400;
+            letter-spacing: 0.5em;
+        }
+        
+        h1 {
+            color: #e9edf0;
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            animation: gogopowerrangers 1s 1 ease-in-out;
+            transition: all 1s cubic-bezier(0.22, 0.44, 0, 1);
+            animation-fill-mode: forwards;
+            margin: 2vh 0 0 0;
+        }
+        
+        h1.poof {
+            font-variation-settings: 'wght' 600;
+            color: black;
+        }
+        
+        h4 {
+            position: relative;
+            z-index: 500;
+            color: #e9edf0;
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            animation: gogopowerrangers 1s 1 ease-in-out;
+            transition: all 1s cubic-bezier(0.22, 0.44, 0, 1);
+            letter-spacing: 0.15em;
+            animation-fill-mode: forwards;
+            margin: 2vh 0 0 0;
+        }
+        
+        h4.poof {
+            font-variation-settings: 'wght' 400;
+            color: black;
+        }
+        
+        input[type=text] {
+            font-family: 'Raleway', sans-serif;
+            font-variation-settings: 'wght' 100;
+            color: #e9edf0;
+            font-size: 8vh;
+            text-align: center;
+            border-width: 0;
+            border-radius: 8vh;
+            padding: 1vh 2vh;
+            margin: none;
+            width: 55vw;
+            height: 6vw;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+            background-color: transparent;
+        }
+        
+        input[type=text].poof {
+            font-variation-settings: 'wght' 800;
+            color: black;
+            background-color: #e9edf0;
+            box-shadow: -20px -20px 40px 0px #fff, -1px -1px 1px 0px rgba(255, 255, 255, 0.6), 20px 20px 40px 0px #d3dbe6, 2px 2px 4px -10px #fff inset, -2px -2px 4px -10px #d3dbe6 inset;
+        }
+        
+        input[type=text]:focus {
+            outline: none;
+            transition: all 0.5s cubic-bezier(0.22, 0.44, 0, 1);
+        }
+        
+        input[type=button] {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.5vh;
+            letter-spacing: 0.2em;
+            font-variation-settings: 'wght' 400;
+            margin: 7vh 3vh 3vh 3vh;
+            padding: 0 1vw;
+            border: none;
+            border-radius: 2vh;
+            height: 50px;
+            background: #e6e9ef;
+            transition: all 0.3s linear;
+            animation-fill-mode: forwards;
+            box-shadow: -20px -20px 40px 0px #fff, -1px -1px 1px 0px rgba(255, 255, 255, 0.6), 20px 20px 40px 0px #d3dbe6, 2px 2px 4px -10px #fff inset, -2px -2px 4px -10px #d3dbe6 inset;
+        }
+        
+        input[type=button]:active {
+            transition: all 0.3s linear;
+            animation-fill-mode: forwards;
+            box-shadow: 20px -20px 40px -50px #fff, 1px 1px 1px 0px rgba(255, 255, 255, 0.6), -20px 20px 40px -50px #d3dbe6, -2px -2px 4px 0px #fff inset, 2px 2px 4px 0px #d3dbe6 inset;
+        }
+        
+        input[type=button]:focus {
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.22, 0.44, 0, 1);
+            animation-fill-mode: forwards;
+        }
+        
+        .sh0 {
+            background-color: #e6e9ef;
+            border-radius: 9vh;
+            box-shadow: -1px -1px 1px 0px rgba(255, 255, 255, 0.6), -20px -20px 40px 0px #fff, 20px 20px 40px 0px #d3dbe6;
+        }
+        
+        .maindiv {
+            display: inline-block;
+            text-align: left;
+            height: 20vh;
+            width: 20vh;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="poof">income tax calculator.</h1>
+    <h4 class="poof">enter the amount of net taxable income below.</h4>
+    <br>
+    <input id="box" class="poof" type="text" placeholder="₱">
+    <br>
+    <input type="button" value="find income tax" onclick="calculate()">
+    <br>
+    <h4 class id="subtitle"></h4>
+    <br>
+    <input id="outputbox" class type="text">
+    </input>
+
+    <script>
+        var id = 1;
+        var text = "hi subtitle here",
+            netincome = 0;
+        var input, output, sub;
+
+        function calculate() {
+            input = document.getElementById("box");
+            output = document.getElementById("outputbox");
+            sub = document.getElementById("subtitle");
+
+            if (input.value.length == 0) {
+                alert("nay");
+                return;
+            }
+
+            input = document.getElementById("box").value;
+            subtitle.classList.remove("poof");
+            output.classList.remove("poof");
+
+            if (input <= 250000) {
+                text = "rate is 0% for ₱250k below";
+                netincome = 0;
+                console.log(netincome);
+            } else if (input > 250000 && input <= 400000) {
+                text = "rate is 20% of excess over ₱250k ";
+                netincome = (input - 250000) * 0.2;
+                console.log(netincome);
+            } else if (input > 400000 && input <= 800000) {
+                text = "rate is ₱30k plus 25% of excess over ₱400k";
+                netincome = ((input - 400000) * 0.25) + 30000;
+                console.log(netincome);
+            } else if (input > 800000 && input <= 2000000) {
+                text = "rate is ₱130k plus 30% of excess over ₱800k";
+                netincome = ((input - 800000) * 0.3) + 130000;
+                console.log(netincome);
+            } else if (input > 2000000 && input <= 8000000) {
+                text = "rate is ₱490k plus 32% of excess over ₱2m";
+                netincome = ((input - 2000000) * 0.32) + 490000;
+                console.log(netincome);
+            } else {
+                text = "rate is ₱2.41m plus 35% of excess over ₱8m";
+                netincome = ((input - 8000000) * 0.35) + 2410000;
+                console.log(netincome);
+            }
+
+            setTimeout(function() {
+                showoutcome()
+            }, 500);
+        }
+
+
+
+        function showoutcome() {
+            subtitle.innerHTML = text;
+            subtitle.classList.add("poof");
+            output.value = '₱' + netincome;
+            output.classList.add("poof");
+        };
+    </script>
+</body>
+
+</html>
