@@ -3,51 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Saltysweet's Portfolio"/>
-    <meta property="og:image" content="thumbs.jpg"/>
-    <meta property="og:description" content="Rafael Marko's Portfolio. Under maintenance."/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Saltysweet's Portfolio" />
+    <meta property="og:image" content="thumbs.jpg" />
+    <meta property="og:description" content="Rafael Marko's Portfolio. Under maintenance." />
 
     <title>we 404'd.</title>
 
-    <link rel="stylesheet" href="css/style.css"> 
-    
+    <link rel="stylesheet" href="css/style.css">
+
     <script>
         function goBack() {
             var x = history.length;
             if (x != 1) {
                 window.history.back();
-            }
-            else {
+            } else {
                 document.location = "index.html";
             }
         }
 
         function invertColors() {
             var element = document.getElementById("invert");
-                element.classList.toggle("design");
+            element.classList.toggle("design");
             var element2 = document.getElementById("invertButton");
-                element2.classList.toggle("design-button");
-                element2.classList.toggle("button");
+            element2.classList.toggle("design-button");
+            element2.classList.toggle("button");
         }
     </script>
 </head>
 
 <body id="invert" class="text-selection-none">
     <div class="content-wrapper">
-        <p class="content-title" onclick="invertColors()">
+        <p class="content-title-mobile content-title-mobile-hoveranim" onclick="invertColors()">
             uh oh.
         </p>
         <p class="content-subtitle">
             <span class="bold">We 404'd.</span><br>
             <br>
+            <br> We may have stumbled upon a link that wouldn't bring us anywhere.<br> Unless if you actually want to check this 404 page out,<br> then congrats. You've done it.<br>
             <br>
 
-            We may have stumbled upon a link that wouldn't bring us anywhere.<br>
-            Unless if you actually want to check this 404 page out,<br>
-            then congrats. You've done it.<br>
-            <br>
-            
             <span class="italic button" onclick="goBack()" id="invertButton">Can we go back now?</span><br>
             <br>
             <br>
