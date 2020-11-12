@@ -2,40 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@nightylights">
-    <meta name="twitter:title" content="Raven">
-    <meta name="twitter:description" content="WKWKWKWK">
     <meta charset="UTF-8">
+    <meta name="twitter:card" content="Rafael Marko's Portfolio">
+    <meta name="twitter:creator" content="@marcoroni">
+    <meta name="twitter:title" content="This is SaltySweet.">
+    <meta name="twitter:description" content="Rafael Marko's Portfolio">
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Saltysweet's Portfolio" />
+    <meta property="og:title" content="This is SaltySweet." />
     <meta property="og:image" content="thumbs.jpg" />
     <meta property="og:description" content="Rafael Marko's Portfolio. Under maintenance." />
 
     <title>saltysweet's Portfolio</title>
 
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/style.css">
 
     <script>
         function invertColors() {
-            var element = document.getElementById("invert");
+            var body = document.getElementById("invert");
             var title = document.getElementById("title");
-            var sub = document.getElementById("desc");
-            element.classList.toggle("design");
-            title.classList.toggle("content-title-mobile-hoveranim");
-            title.classList.toggle("design");
-            sub.classList.toggle("design-button-mobile");
+            var subtitle = document.getElementById("subtitle");
+            body.classList.toggle("invert");
+            title.classList.toggle("invert");
+            subtitle.classList.toggle("invert");
         }
     </script>
 </head>
 
 <body id="invert" class="text-selection-none">
     <div class="content-wrapper-mobile">
-        <p id="title" class="content-title-mobile content-title-mobile-hoveranim" onclick="invertColors()">
+        <p id="title" class="content-title-mobile" onclick="invertColors()">
             SS.
         </p>
         <p class="content-subtitle">
-            <span id="desc" class="italic button-mobile">Portfolio under maintenance.</span>
+            <span id="subtitle" class="italic button-mobile">Portfolio under maintenance.</span>
             <br><br>
             <span class="bold">- Rafael Marko -</span>
         </p>
